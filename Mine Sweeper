@@ -1,0 +1,589 @@
+from swampy.TurtleWorld import*
+
+print("***** Welcome to Minesweeper *****")
+print("-------First Turtle------")
+
+key_start = 0
+while key_start == 0:
+    turtle_name_1= input("Please type the name of the first Turtle:")
+    if turtle_name_1 == "":
+        print("Names cannot be empty!")
+        continue
+    while True:
+        color_of_turtle1 = input("Please choose turtle color for " + turtle_name_1 + " (red, blue, or green):")
+
+        if color_of_turtle1 == "":
+            print("Please type a color!")
+            continue
+
+
+        if color_of_turtle1 == "black":
+            print("ERROR! black is not a valid color, please select one of red, blue, or green colors:")
+            continue
+
+
+
+        if color_of_turtle1 == "red":
+            print(turtle_name_1 + " is ready to go!")
+
+            break
+
+        if color_of_turtle1 == "blue":
+            print(turtle_name_1 + " is ready to go!")
+
+            break
+        if color_of_turtle1 == "green":
+            print(turtle_name_1 + " is ready to go!")
+
+            break
+
+        else:
+            print("wrong color type!")
+            continue
+
+    print("-------Second Turtle------")
+    while True:
+        turtle_name_2 = input("Please type the name of the second Turtle:")
+        if turtle_name_2 == "":
+             print("Names cannot be empty!")
+             continue
+        if turtle_name_2 == turtle_name_1:
+            print("ERROR!" + turtle_name_1 + " is already taken, please enter another name !")
+            continue
+        else:
+
+            break
+    while True:
+        color_of_turtle2 = input("Please choose turtle color for " + turtle_name_2 + " (red, blue, or green):")
+        if color_of_turtle2 == "":
+            print("Please type a color!")
+            continue
+        if color_of_turtle2 == "black":
+            print("ERROR! black is not a valid color, please select one of red, blue, or green colors:")
+            continue
+
+        if color_of_turtle2 == color_of_turtle1:
+            print("ERROR! " + color_of_turtle1 + " is already taken! Please choose different color!")
+
+            continue
+
+        if color_of_turtle2 == "red":
+            print(turtle_name_2 + " is ready to go!")
+
+            a = "red"
+
+            break
+        if color_of_turtle2 == "blue":
+            print(turtle_name_2 + " is ready to go!")
+            bbl = color_of_turtle2
+            break
+
+        if color_of_turtle2 == "green":
+            print(turtle_name_2 + " is ready to go!")
+            cgr = color_of_turtle2
+            break
+
+
+
+        else:
+            print("Wrong color type!")
+            continue
+
+
+
+
+
+
+    start_button = input("Enter 1 to draw the game area and deploy bombs randomly:")
+    if start_button == "1":
+        print("Starting...")
+
+
+        world= TurtleWorld().geometry("1200x300")
+
+
+        staff_turtle1 = Turtle()
+        staff_turtle2 = Turtle()
+
+
+        def determine_position(turtle, x1, x2):
+            pu(turtle)
+            lt(turtle, 90)
+            fd(turtle, x1)
+            lt(turtle, 90)
+            fd(turtle, x2)
+            lt(turtle, 180)
+            pd(turtle)
+
+
+        def create_blocks(turtle, length):
+            for i in range(30):
+                for i in range(4):
+                    fd(turtle, length)
+                    lt(turtle, 90)
+                pu(turtle)
+                fd(turtle, 35)
+                pd(turtle)
+        staff_turtle2.set_delay(0.001)
+        staff_turtle1.set_delay(0.001)
+        determine_position(staff_turtle1,120,120)
+        determine_position(staff_turtle2,0,120)
+        create_blocks(staff_turtle1,5)
+        create_blocks(staff_turtle2,5)
+
+        die(staff_turtle1)
+        die(staff_turtle2)
+
+
+        def draw_frame(turtle):
+            pu(turtle)
+            lt(turtle, 90)
+            fd(turtle, 160)
+            lt(turtle, 90)
+            fd(turtle, 140)
+            lt(turtle, 180)
+            pd(turtle)
+            for i in range(4):
+                fd(turtle, 1050)
+                rt(turtle, 90)
+                fd(turtle, 200)
+                rt(turtle, 90)
+
+
+        drawer = Turtle()
+
+        draw_frame(drawer)
+        die(drawer)
+
+        import random
+
+
+        def put_bombs1(turtle):
+            pu(turtle)
+            lt(turtle, 90)
+            fd(turtle, 120.0)
+            lt(turtle, 90)
+            fd(turtle, 120.00000000000001)
+            lt(turtle, 180)
+            pd(turtle)
+
+
+
+        def put_bombs2(turtle, ):
+            pu(turtle)
+            lt(turtle, 90)
+            fd(turtle, 0)
+            lt(turtle, 90)
+            fd(turtle, 120)
+            lt(turtle, 180)
+            pd(turtle)
+
+
+        bomb1 = Turtle()
+        bomb2 = Turtle()
+        bomb3 = Turtle()
+        bomb4 = Turtle()
+        bomb5 = Turtle()
+
+        bomb11 = Turtle()
+        bomb22 = Turtle()
+        bomb33 = Turtle()
+        bomb44 = Turtle()
+        bomb55 = Turtle()
+
+        bomb1.set_color("black")
+        bomb2.set_color("black")
+        bomb3.set_color("black")
+        bomb4.set_color("black")
+        bomb5.set_color("black")
+
+        bomb11.set_color("black")
+        bomb22.set_color("black")
+        bomb33.set_color("black")
+        bomb44.set_color("black")
+        bomb55.set_color("black")
+
+        bomb1.set_delay(0.001)
+        bomb2.set_delay(0.001)
+        bomb3.set_delay(0.001)
+        bomb4.set_delay(0.001)
+        bomb5.set_delay(0.001)
+
+        bomb11.set_delay(0.001)
+        bomb22.set_delay(0.001)
+        bomb33.set_delay(0.001)
+        bomb44.set_delay(0.001)
+        bomb55.set_delay(0.001)
+
+        put_bombs1(bomb1)
+        put_bombs1(bomb2)
+        put_bombs1(bomb3)
+        put_bombs1(bomb4)
+        put_bombs1(bomb5)
+
+        put_bombs2(bomb11)
+        put_bombs2(bomb22)
+        put_bombs2(bomb33)
+        put_bombs2(bomb44)
+        put_bombs2(bomb55)
+
+
+
+
+
+        random_block1 = random.randrange(35, 1015, 35)
+        pu(bomb1)
+        pu(bomb11)
+        fd(bomb1, random_block1)
+        fd(bomb11, random_block1)
+
+        while True:
+            random_block2 = random.randrange(35, 1015, 35)
+            if random_block2 == random_block1:
+                continue
+            elif random_block2 != random_block1:
+                pu(bomb2)
+                pu(bomb22)
+                fd(bomb2, random_block2)
+                fd(bomb22, random_block2)
+
+                break
+
+        while True:
+            random_block3 = random.randrange(35, 1015, 35)
+            if random_block3 == random_block1 or random_block3 == random_block2:
+                continue
+
+
+            elif random_block3 != random_block1 and random_block3 != random_block2:
+                pu(bomb3)
+                pu(bomb33)
+                fd(bomb3, random_block3)
+                fd(bomb33, random_block3)
+                break
+        while True:
+            random_block4 = random.randrange(35, 1015, 35)
+            if random_block4 == random_block1 or random_block4 == random_block2 or random_block4 == random_block3:
+                continue
+            elif random_block4 != random_block1 and random_block4 != random_block2 and random_block4 != random_block3:
+                pu(bomb4)
+                pu(bomb44)
+                fd(bomb4, random_block4)
+                fd(bomb44, random_block4)
+
+                break
+
+        while True:
+            random_block5 = random.randrange(35, 1015, 35)
+            if random_block5 == random_block1 or random_block5 == random_block2 or random_block5 == random_block3 or random_block5 == random_block4:
+                continue
+            elif random_block5 != random_block1 and random_block5 != random_block2 and random_block5 != random_block3 and random_block5 != random_block4:
+                pu(bomb5)
+                pu(bomb55)
+                fd(bomb5, random_block5)
+                fd(bomb55, random_block5)
+
+                break
+        # 1015 last block
+
+
+
+
+
+
+        turtle_2 = Turtle()
+        turtle_1 = Turtle()
+
+
+        turtle_1.set_delay(0.001)
+        turtle_2.set_delay(0.001)
+
+        pu(turtle_1)
+        lt(turtle_1, 180)
+        fd(turtle_1, 120.00000000000001)
+        rt(turtle_1, 90)
+        fd(turtle_1, 120)
+        rt(turtle_1, 90)
+        pd(turtle_1)
+
+
+
+        pu(turtle_2)
+        lt(turtle_2, 90)
+        fd(turtle_2, 0)
+        lt(turtle_2, 90)
+        fd(turtle_2, 120)
+        lt(turtle_2, 180)
+        pd(turtle_2)
+
+        if color_of_turtle1 == "red":
+            turtle_1.set_color("red")
+            turtle_1.set_pen_color("red")
+        if color_of_turtle1 == "blue":
+            turtle_1.set_color("blue")
+            turtle_1.set_pen_color("blue")
+        if color_of_turtle1 == "green":
+            turtle_1.set_color("green")
+            turtle_1.set_pen_color("green")
+        if color_of_turtle2 == "red":
+            turtle_2.set_color("red")
+            turtle_2.set_pen_color("red")
+        if color_of_turtle2 == "blue":
+            turtle_2.set_color("blue")
+            turtle_2.set_pen_color("blue")
+        if color_of_turtle2 == "green":
+            turtle_2.set_color("green")
+            turtle_2.set_pen_color("green")
+
+
+
+        end_key1 = 0
+        end_key2 = 1
+        #toss
+        print("Let’s start the game with a coin toss.")
+        toss = random.randrange(1, 3)
+        if toss == 1:
+            print(turtle_name_1 + " won the toss, " + turtle_name_1 + " starts first.")
+            key = 0
+            key2 = 0
+            score_t1 = 0
+            score_t2 = 0
+
+            #dice
+            while True:
+
+                while key == 0:
+                    roll_dice = input("Please press ENTER to roll the dice " + turtle_name_1)#
+                    if roll_dice == "":
+
+                        dice = random.randrange(1, 7)
+
+                        if turtle_1.x > 685:
+                            dice = random.randrange(1, 5)
+                        if turtle_1.x > 720:#zar azaltma
+                            dice = random.randrange(1, 4)
+                        if turtle_1.x > 755:
+                            dice = random.randrange(1, 3)
+                        if turtle_1.x > 790:
+                            dice = random.randrange(1, 2)
+
+
+
+
+
+                        print("Dice Result: " + str(dice))
+                        length = dice*35
+
+
+
+                        print(turtle_name_1 + "'s Score: " + str(score_t1+ dice))
+                        print(turtle_name_2 + "'s Score: " + str(score_t2))
+                        score_t1 += dice
+
+                        fd(turtle_1, length)
+
+
+
+                        if turtle_1.x == bomb1.get_x() or turtle_1.x == bomb2.get_x() or turtle_1.x == bomb3.get_x() or \
+                                turtle_1.x == bomb4.get_x() or turtle_1.x == bomb5.get_x():
+                            print(turtle_name_1 + " stepped on bomb. BOOOM !!!")
+                            print(turtle_name_1 + " is eliminated.")
+
+                            end_key1 = 5
+                            key = 1
+
+                    break
+
+                while key2 == 0:
+                    roll_dice = input("Please press ENTER to roll the dice " + turtle_name_2)
+                    if roll_dice == "":
+
+                        dice = random.randrange(1, 7)
+
+                        if turtle_2.x > 685:
+                            dice = random.randrange(1, 5)
+                        if turtle_2.x > 720:#zar azaltma
+                            dice = random.randrange(1, 4)
+                        if turtle_2.x > 755:
+                            dice = random.randrange(1, 3)
+                        if turtle_2.x > 790:
+                            dice = random.randrange(1, 2)
+
+                        print("Dice Result: " + str(dice))
+                        length = dice*35
+
+                        print(turtle_name_1 + "'s Score: " + str(score_t1))
+                        print(turtle_name_2 + "'s Score: " + str(score_t2+dice))
+
+                        score_t2 += dice
+
+                        fd(turtle_2, length)
+
+                        if turtle_2.x == bomb11.get_x() or turtle_2.x == bomb22.get_x() or turtle_2.x == bomb33.get_x() or turtle_2.x == bomb44.get_x() or turtle_2.x == bomb55.get_x():
+                            print(turtle_name_2 + " stepped on bomb. BOOOM !!!")
+                            print(turtle_name_2 + " is eliminated.")
+                            end_key2 = 5
+                            key2 = 1
+                    break
+
+                if end_key1 == end_key2:
+                    print("No one could win this game.")
+                    ask = input("Would you like to play again? (yes/no):")
+                    if ask =="yes":
+
+                        break
+                    if ask == "no":
+                        key_start = 1
+                        print("Game over.")
+                        break
+
+
+                if turtle_1.get_x() > 890:
+                    print("Hooooorrayyyy !! " + turtle_name_1 + " has won.")
+                    ask = input(turtle_name_1 + " wins the game! Would you like to play again? (yes/no):")
+                    if ask =="yes":
+
+                        break
+                    if ask == "no":
+                        key_start = 1
+                        print("Game over.")
+                        break
+
+                if turtle_2.get_x() > 890:
+                    print("Hooooorrayyyy !! " + turtle_name_2 + " has won.")
+                    ask = input(turtle_name_2 + " wins the game! Would you like to play again? (yes/no):")
+                    if ask == "yes":
+
+                        break
+                    if ask == "no":
+                        key_start = 1
+                        print("Game over.")
+                        break
+                continue
+
+                #toss 2 uyarla
+
+
+
+        if toss == 2:
+            print(turtle_name_1 + " won the toss, " + turtle_name_1 + " starts first.")
+            key = 0
+            key2 = 0
+            score_t1 = 0
+            score_t2 = 0
+
+            while True:
+
+                while key2 == 0:
+                    roll_dice = input("Please press ENTER to roll the dice " + turtle_name_2)
+                    if roll_dice == "":
+
+                        dice = random.randrange(1, 7)
+
+                        if turtle_2.x > 685:
+                            dice = random.randrange(1, 5)
+                        if turtle_2.x > 720:#zar azaltma
+                            dice = random.randrange(1, 4)
+                        if turtle_2.x > 755:
+                            dice = random.randrange(1, 3)
+                        if turtle_2.x > 790:
+                            dice = random.randrange(1, 2)
+
+                        print("Dice Result: " + str(dice))
+                        length = dice*35
+
+                        print(turtle_name_1 + "'s Score: " + str(score_t1))
+                        print(turtle_name_2 + "'s Score: " + str(score_t2+dice))
+
+                        score_t2 += dice
+
+                        fd(turtle_2, length)
+
+                        if turtle_2.x == bomb11.get_x() or turtle_2.x == bomb22.get_x() or turtle_2.x == bomb33.get_x() or turtle_2.x == bomb44.get_x() or turtle_2.x == bomb55.get_x():
+                            print(turtle_name_2 + " stepped on bomb. BOOOM !!!")
+                            print(turtle_name_2 + " is eliminated.")
+                            end_key2 = 5
+                            key2 = 1
+                    break
+
+
+                while key == 0:
+                    roll_dice = input("Please press ENTER to roll the dice " + turtle_name_1)#
+                    if roll_dice == "":
+
+                        dice = random.randrange(1, 7)
+
+                        if turtle_1.x > 685:
+                            dice = random.randrange(1, 5)
+                        if turtle_1.x > 720:#zar azaltma
+                            dice = random.randrange(1, 4)
+                        if turtle_1.x > 755:
+                            dice = random.randrange(1, 3)
+                        if turtle_1.x > 790:
+                            dice = random.randrange(1, 2)
+
+
+
+
+
+                        print("Dice Result: " + str(dice))
+                        length = dice*35
+
+
+
+                        print(turtle_name_1 + "'s Score: " + str(score_t1+ dice))
+                        print(turtle_name_2 + "'s Score: " + str(score_t2))
+                        score_t1 += dice
+
+                        fd(turtle_1, length)
+
+
+
+                        if turtle_1.x == bomb1.get_x() or turtle_1.x == bomb2.get_x() or turtle_1.x == bomb3.get_x() or \
+                                turtle_1.x == bomb4.get_x() or turtle_1.x == bomb5.get_x():
+                            print(turtle_name_1 + " stepped on bomb. BOOOM !!!")
+                            print(turtle_name_1 + " is eliminated.")
+
+                            end_key1 = 5
+                            key = 1
+
+                    break
+
+                if end_key1 == end_key2:
+                    print("No one could win this game.")
+                    ask = input("Would you like to play again? (yes/no):")
+                    if ask =="yes":
+
+                        break
+                    if ask == "no":
+                        key_start = 1
+                        print("Game over.")
+                        break
+
+
+                if turtle_1.get_x() > 890:
+                    print("Hooooorrayyyy !! " + turtle_name_1 + " has won.")
+                    ask = input(turtle_name_1 + " wins the game! Would you like to play again? (yes/no):")
+                    if ask =="yes":
+
+                        break
+                    if ask == "no":
+                        key_start = 1
+                        print("Game over.")
+                        break
+
+                if turtle_2.get_x() > 890:
+                    print("Hooooorrayyyy !! " + turtle_name_2 + " has won.")
+                    ask = input(turtle_name_2 + " wins the game! Would you like to play again? (yes/no):")
+                    if ask == "yes":
+
+                        break
+                    if ask == "no":
+                        key_start = 1
+                        print("Game over.")
+                        break
+                continue
+
+
+
+        continue
